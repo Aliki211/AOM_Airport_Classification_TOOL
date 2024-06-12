@@ -1,0 +1,144 @@
+﻿<Window x:Class="AOM_Airport_Classification.AddAirportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="C:\Users\LENOVO\source\repos\AOM_Airport_Classification\ACT.ico"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AOM_Airport_Classification"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="10,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="338*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="160*"/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left" Height="100" Margin="12,6,0,0" VerticalAlignment="Top" Width="100" Source="/air-ocean-maroc_922717.png"/>
+        <Button Click="Add_Airport_click" Foreground="#FFFDFDFD" Content="Add Airport" Grid.Row="1" Grid.Column="1" Margin="0,282,178,17" HorizontalAlignment="Right" Width="91">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#838989" Offset="0"/>
+                    <GradientStop Color="#024c8b" Offset="0.892"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label Content="Name" HorizontalAlignment="Left" Height="26" Margin="19,51,0,0" VerticalAlignment="Top" Width="130" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txt_name" HorizontalAlignment="Left" Height="29" Margin="19,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="86"/>
+        <TextBox x:Name="txt_oaci" HorizontalAlignment="Left" Height="29" Margin="19,11,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="86"/>
+        <TextBox x:Name="txt_iata" HorizontalAlignment="Left" Height="29" Margin="19,65,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="86"/>
+        <TextBox x:Name="txt_number_of_runways" HorizontalAlignment="Left" Height="29" Margin="19,117,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="txt_shortest_runway" HorizontalAlignment="Left" Height="27" Margin="19,172,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="txt_longest_runway" HorizontalAlignment="Left" Height="30" Margin="19,219,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <Grid HorizontalAlignment="Left" Height="46" Grid.Row="1" VerticalAlignment="Top" Margin="26,282,0,0" Width="99" Grid.ColumnSpan="2">
+            <CheckBox x:Name="chkalsYes" Content="Yes" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="chkalsNo" Content="No" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked" Margin="0,23,0,0"/>
+        </Grid>
+        <Label Content="ALS" HorizontalAlignment="Left" Height="26" Margin="26,254,0,0" VerticalAlignment="Top" Width="130" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Grid HorizontalAlignment="Left" Height="46" Grid.Row="1" VerticalAlignment="Top" Margin="101,24,0,0" Width="99" Grid.Column="1">
+            <CheckBox x:Name="chkrcllYes" Content="Yes" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="chkrcllNo" Content="No" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked" Margin="0,23,0,0"/>
+
+        </Grid>
+        <Label Content="RCLL" HorizontalAlignment="Left" Height="26" Margin="103,111,0,0" VerticalAlignment="Top" Width="130" Grid.Column="1" Grid.RowSpan="2"/>
+        <Grid HorizontalAlignment="Left" Height="46" Grid.Row="1" VerticalAlignment="Top" Margin="104,89,0,0" Width="99" Grid.Column="1">
+            <CheckBox x:Name="chkrlYes" Content="Yes" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="chkrlNo" Content="No" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked" Margin="0,17,0,0"/>
+
+        </Grid>
+        <Label Content="RL" HorizontalAlignment="Left" Height="26" Margin="103,64,0,0" VerticalAlignment="Top" Width="130" Grid.Column="1" Grid.Row="1"/>
+        <Grid HorizontalAlignment="Left" Height="46" Grid.Row="1" VerticalAlignment="Top" Margin="104,150,0,0" Width="99" Grid.Column="1">
+            <CheckBox x:Name="chkpapiYes" Content="Yes" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="chkpapiNo" Content="No" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked" Margin="0,17,0,0"/>
+
+        </Grid>
+        <Label Content="PAPI" HorizontalAlignment="Left" Height="26" Margin="98,125,0,0" VerticalAlignment="Top" Width="130" Grid.Column="1" Grid.Row="1"/>
+        <Grid Margin="444,16,124,113" Grid.Row="1" Grid.Column="1">
+            <ListBox x:Name="lstApproach1" Margin="0,44,0,0" SelectionChanged="ListBox_SelectionChanged">
+                <ListBoxItem Content="ILS"/>
+                <ListBoxItem Content="RNAV"/>
+                <ListBoxItem Content="VOR"/>
+                <ListBoxItem Content="RNP"/>
+                <ListBoxItem Content="NDB"/>
+                <ListBoxItem Content="VIS"/>
+                <ListBoxItem Content="UNK"/>
+            </ListBox>
+            <TextBlock HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" VerticalAlignment="Top" Width="61"><Run Language="fr-fr" Text="Approach1"/></TextBlock>
+        </Grid>
+        <Grid Margin="552,16,16,113" Grid.Row="1" Grid.Column="1">
+            <ListBox x:Name="lstApproach2" Margin="0,44,0,0" SelectionChanged="ListBox_SelectionChanged">
+                <ListBoxItem Content="ILS"/>
+                <ListBoxItem Content="RNAV"/>
+                <ListBoxItem Content="VOR"/>
+                <ListBoxItem Content="RNP"/>
+                <ListBoxItem Content="NDB"/>
+                <ListBoxItem Content="Not available"/>
+                <ListBoxItem Content="VIS"/>
+                <ListBoxItem Content="UNK"/>
+            </ListBox>
+            <TextBlock HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" VerticalAlignment="Top" Width="61"><Run Text="Approach"/><Run Language="fr-fr" Text="2"/></TextBlock>
+        </Grid>
+        <TextBox x:Name="txt_highest_msa" HorizontalAlignment="Left" Height="25" Margin="79,213,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Column="1">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.542"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.525"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox x:Name="txt_circling_minimas" HorizontalAlignment="Left" Height="25" Margin="82,267,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Column="1"/>
+        <Grid HorizontalAlignment="Left" Height="46" Grid.Row="1" VerticalAlignment="Top" Margin="236,30,0,0" Width="99" Grid.Column="1">
+            <CheckBox x:Name="chkwxreportYes" Content="Yes" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="chkwxreportNo" Content="No" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked" Margin="0,17,0,0"/>
+
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="46" Grid.Row="1" VerticalAlignment="Top" Margin="236,90,0,0" Width="99" Grid.Column="1">
+            <CheckBox x:Name="chkatcYes" Content="Yes" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="chkatcNo" Content="No" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked" Margin="0,17,0,0"/>
+
+        </Grid>
+        <Label Content="ATC" HorizontalAlignment="Left" Height="26" Margin="236,64,0,0" VerticalAlignment="Top" Width="130" Grid.Column="1" Grid.Row="1"/>
+        <Grid HorizontalAlignment="Left" Height="46" Grid.Row="1" VerticalAlignment="Top" Margin="236,153,0,0" Width="99" Grid.Column="1">
+            <CheckBox x:Name="chkmeYes" Content="Yes" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="chkmeNo" Content="No" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked" Margin="0,23,0,0"/>
+        </Grid>
+        <Label Content="Mountainous Environement" HorizontalAlignment="Left" Height="26" Margin="233,125,0,0" VerticalAlignment="Top" Width="162" Grid.Column="1" Grid.Row="1"/>
+        <Grid HorizontalAlignment="Left" Height="46" Grid.Row="1" VerticalAlignment="Top" Margin="236,213,0,0" Width="99" Grid.Column="1">
+            <CheckBox x:Name="chkswxYes" Content="Yes" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="chkswxNo" Content="No" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked" Margin="0,17,0,0"/>
+
+        </Grid>
+        <Label Content="WX Phenomenas" HorizontalAlignment="Left" Height="26" Margin="233,187,0,0" VerticalAlignment="Top" Width="130" Grid.Column="1" Grid.Row="1"/>
+        <Grid HorizontalAlignment="Left" Height="46" Grid.Row="1" VerticalAlignment="Top" Margin="236,279,0,0" Width="99" Grid.Column="1">
+            <CheckBox x:Name="chknightoperationYes" Content="Yes" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked"/>
+            <CheckBox x:Name="chknightoperationNo" Content="No" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Checked="CheckBox_Checked" Margin="0,17,0,0"/>
+        </Grid>
+        <Label Content="Night Operation" HorizontalAlignment="Left" Height="26" Margin="236,252,0,0" VerticalAlignment="Top" Width="130" Grid.Column="1" Grid.Row="1"/>
+        <Label Content="WX REPORT" HorizontalAlignment="Left" Height="26" Margin="228,114,0,0" VerticalAlignment="Top" Width="130" Grid.Column="1" Grid.RowSpan="2"/>
+        <Button Click="Classify_Airport_Click" Foreground="#FFFDFDFD" Content="Classify Airport" Grid.Row="1" Grid.Column="1" Margin="0,282,37,18" HorizontalAlignment="Right" Width="99">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#838989" Offset="0"/>
+                    <GradientStop Color="#024c8b" Offset="0.892"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label Content="OACI" HorizontalAlignment="Left" Height="26" Margin="19,100,0,0" VerticalAlignment="Top" Width="130" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Label Content="IATA" HorizontalAlignment="Left" Height="26" Margin="19,36,0,0" VerticalAlignment="Top" Width="130" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label Content="Number of Runways" HorizontalAlignment="Left" Height="26" Margin="19,91,0,0" VerticalAlignment="Top" Width="130" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label Content="Shortest Runway Length" HorizontalAlignment="Left" Height="26" Margin="19,143,0,0" VerticalAlignment="Top" Width="149" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label Content="Longest Runway Length" HorizontalAlignment="Left" Height="26" Margin="19,193,0,0" VerticalAlignment="Top" Width="149" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label Content="Highest MSA" HorizontalAlignment="Left" Height="26" Margin="79,189,0,0" VerticalAlignment="Top" Width="149" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Circling Minimas" HorizontalAlignment="Left" Height="26" Margin="79,236,0,0" VerticalAlignment="Top" Width="149" Grid.Row="1" Grid.Column="1"/>
+    </Grid>
+</Window>

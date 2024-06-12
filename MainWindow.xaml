@@ -1,0 +1,53 @@
+﻿<Window x:Class="AOM_Airport_Classification.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="C:\Users\LENOVO\source\repos\AOM_Airport_Classification\ACT.ico"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AOM_Airport_Classification"
+        mc:Ignorable="d"
+        Title="AOM Airport Classification" Height="450" Width="800">
+    <Grid Margin="10,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="155*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44*"/>
+            <RowDefinition Height="173*"/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left" Height="100" Margin="12,12,0,0" VerticalAlignment="Top" Width="100" Source="/air-ocean-maroc_922717.png" Grid.RowSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="37" Margin="525,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Grid.RowSpan="2"><Run Language="fr-fr" Text="Add a new airport"/></TextBlock>
+        <TextBox x:Name="txt_oaci" HorizontalAlignment="Left" Height="29" Margin="112,27,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="86"/>
+        <Label Content="OACI" HorizontalAlignment="Left" Height="26" Margin="112,88,0,0" VerticalAlignment="Top" Width="130" Grid.RowSpan="2"/>
+        <Button Content="Add a new airport" HorizontalAlignment="Left" Height="30" Margin="519,22,0,0" VerticalAlignment="Top" Width="115" Click="Button_Click_1" Foreground="White" Grid.Row="1">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#838989"/>
+                    <GradientStop Color="#024c8b" Offset="0.892"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Classify Airport" HorizontalAlignment="Left" Height="30" Margin="96,143,0,0" VerticalAlignment="Top" Width="152" Click="Classify_Airport_Click" Foreground="#FFFDFDFD" Grid.Row="1">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#838989" Offset="0"/>
+                    <GradientStop Color="#024c8b" Offset="0.892"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="txt_name" HorizontalAlignment="Left" Height="29" Margin="112,84,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="86"/>
+        <Label Content="Name" HorizontalAlignment="Left" Height="26" Margin="112,53,0,0" VerticalAlignment="Top" Width="130" Grid.Row="1"/>
+        <ListBox x:Name="OperationalRisk" HorizontalAlignment="Left" Margin="62,221,0,30" SelectionChanged="OperationalRisk_SelectionChanged" Grid.Row="1" Width="115"/>
+        <ListBoxItem Content="High" Margin="62,223,603,102" Grid.Row="1"/>
+        <ListBoxItem Content="Medium" Margin="62,251,603,74" Grid.Row="1"/>
+        <ListBoxItem Content="Low"  Margin="62,276,603,49" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="62,193,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Operational Risk" VerticalAlignment="Top" Width="110"/>
+    </Grid>
+</Window>
